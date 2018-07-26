@@ -11,8 +11,8 @@
 
 <script>
 
-d3.csv("winemag-data-130k-v2.csv", function(data) {
-  d3.select("#chart")
+d3.csv("winemag-data-130k-v2.csv")
+    .select("#chart")
     .selectAll("rect")
     .data(data)
     .enter()
@@ -22,10 +22,8 @@ d3.csv("winemag-data-130k-v2.csv", function(data) {
     .attr("x",function(d,i){return 20*i;})
     .attr("y", function(d){return ((height/2.0)-(5.0*d));})
     .attr("tokenid",function(d,i){return d*i*64;})
-    .attr("fill","steelblue ")
     .exit()
     .remove()
-});
 
 </script>
 </body>
