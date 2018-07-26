@@ -43,7 +43,7 @@
 				.append('g')
 				.attr('transform','translate(' + margin.left + "," + margin.top + ')');
 			var stateScale = d3.scaleBand()
-				.domain(data.state)
+				.domain(d3.extent(data,function(d) { return d.state;}))
 				.range([0,width])
 				.paddingInner(0.1);
 			var numberScale = d3.scaleLinear()
