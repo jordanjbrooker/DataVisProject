@@ -54,10 +54,17 @@
 			var xAxis = d3.axisBottom(stateScale);
 			var yAxis = d3.axisLeft(numberScale);
 
-			svg.append('g')
+			var xAxisEle = svg.append('g')
 				.classed('x axis', true)
 				.attr('transform', 'translate(0,' + height + ')')
 				.call(xAxis);
+			
+			var xText = xAxisEle.append('text')
+				.attr('transform', 'translate(-' + height + ',0)')
+				.style('text-anchor', 'middle')
+				.attr('fill','black')
+				.attr('dx','0.35em')
+				.text('State');
 
 			var yAxisEle = svg.append('g')
 				.classed('y axis', true)
