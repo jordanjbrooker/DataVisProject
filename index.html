@@ -10,6 +10,8 @@
     </div>
 
 <script>
+d3.select("#svg_container")
+    .style("fill","gray");
     
 d3.csv("states.csv", function(error, data) {
     if (error) {
