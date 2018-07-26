@@ -11,7 +11,12 @@
 
 <script>
 d3.select("#svg_container")
-    .style("fill","gray");
+    .selectAll("rect")
+    .enter()
+    .append("rect")
+    .style("fill","gray")
+    .exit()
+    .remove();
     
 d3.csv("states.csv", function(error, data) {
     if (error) {
