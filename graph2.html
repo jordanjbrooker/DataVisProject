@@ -2,7 +2,7 @@
 <html>
   <style>
     #title {
-      display: block;
+      display: inline;
       margin-left: auto;
       margin-right: auto;
     }
@@ -15,10 +15,26 @@
     <div id="title">
       <h1>Wines of the United States</h1>
     </div>
+    
     <!--Navigation-->
     <div>
       <a href="https://jordanjbrooker.github.io/DataVisProject/">Back</a>
     </div>
+    
+    <div id="svg-container">
+      <svg id="chart2">
+      </svg>
+    </div>
+    
+    <script>
+      d3.csv("states.csv", function(d){
+        d.record = +d.record;
+        d.number = +d.number;
+        return d;
+      });
+      
+      console.log(d[0]);
+    
   </body>
 </html>
 
