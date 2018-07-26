@@ -27,13 +27,13 @@
     </div>
     
     <script>
-      var d = d3.csv("states.csv", function(d){
+      d3.csv("states.csv", function(d){
         d.record = +d.record;
         d.number = +d.number;
         return d;
       });
       
-      console.log("d"[0].record);
+      console.log(d[0].record);
       
     </script>
   </body>
