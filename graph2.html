@@ -46,7 +46,6 @@ d3.csv("states.csv", function(d) {
       .text("State");
   
   g.append("g")
-      .attr("class", "axis axis--y")
       .call(d3.axisLeft(y))
     .append("text")
       .attr("transform", "rotate(-90)")
