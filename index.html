@@ -6,7 +6,7 @@
 <body>
     Hey.
     <div id="svg_container">
-        <svg id="chart" width="10000" height="50000">
+        <svg id="chart" width="960" height="500">
         </svg>
     </div>
 
@@ -19,6 +19,10 @@ d3.csv("states.csv", function(error, data) {
     data.forEach(function(d) {
         d.number = +d.number;
         d.record = +d.record;
+    }, function(error,data) {
+        if (error) throw error;
+        x.domain([0,d3.max(data,function(d) {return d.number;})]);
+        y.domain(data.map(function(d) {return d.record;}));
     });
     d3.select("#chart")
             .selectAll("rect")
