@@ -18,6 +18,7 @@ d3.csv("states.csv", function(error, data) {
     }
     data.forEach(function(d) {
         d.number = +d.number;
+        d.record = +d.record;
     });
     d3.select("#chart")
             .selectAll("rect")
@@ -26,7 +27,7 @@ d3.csv("states.csv", function(error, data) {
             .append("rect")
             .attr("width",10)
             .attr("height",10)
-            .attr("y", function(d,i) { return 10*i;})
+            .attr("y", function(d,i) { return 10*d.record;})
             .exit()
             .remove()
     });
