@@ -60,10 +60,9 @@
 				.call(xAxis);
 			
 			var xText = xAxisEle.append('text')
-				.attr('transform', 'translate(-' + height + ',0)')
+				.attr('transform', 'translate(' + width/2 + ',0)')
 				.style('text-anchor', 'middle')
 				.attr('fill','black')
-				.attr('dx','0.35em')
 				.text('State');
 
 			var yAxisEle = svg.append('g')
