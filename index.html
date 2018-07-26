@@ -18,7 +18,7 @@ d3.csv("wine_reviews.csv", function(error, data) {
         return console.warn(error);
     }
     data.forEach(function(d) {
-        d.Record = +d.Record;
+        d.record = +d.record;
     });
     d3.select("#chart")
             .selectAll("rect")
@@ -27,7 +27,7 @@ d3.csv("wine_reviews.csv", function(error, data) {
             .append("rect")
             .attr("width",15)
             .attr("height",20)
-            .attr("x", function(d) { return 10*d.Record;})
+            .attr("x", function(d) { return 10*d.record;})
             .exit()
             .remove()
     });
