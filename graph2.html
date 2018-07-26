@@ -30,6 +30,7 @@ d3.csv("states.csv", type, function(error, data) {
   data.forEach(function(d) {
     d.number = +d.number;
     d.record = +d.record;
+    return d;
   });
   
   x.domain([0, d3.max(data, function(d) { return d.number; })]);
