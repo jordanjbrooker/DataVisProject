@@ -36,7 +36,7 @@ d3.csv("states.csv", function(d) {
 }, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.record; }));
+  x.domain(data.map(function(d) { return d.state; }));
   y.domain([0, d3.max(data, function(d) { return d.number; })]);
 
   g.append("g")
