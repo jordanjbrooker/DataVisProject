@@ -32,8 +32,7 @@
 			}, function(error, rows) {
 				console.log(rows)
 			});
-			var states = d3.map(data, function(d) { return d.state;});
-			console.log(states)
+			//var states = d3.map(data, function(d) { return d.state;});
 			var margin = {top: 5, right: 5, bottom: 50, left: 50};
 			var fullWidth = 500;
 			var fullHeight = 500;
@@ -47,7 +46,7 @@
 				.append('g')
 				.attr('transform','translate(' + margin.left + "," + margin.top + ')');
 			var stateScale = d3.scaleBand()
-				.domain(states)
+				.domain(data, function(d) { return d.states;})
 				.range([0,width])
 				.paddingInner(0.1);
 			var numberScale = d3.scaleLinear()
