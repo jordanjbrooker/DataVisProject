@@ -88,7 +88,7 @@
 				.attr('x', function(d,i) { return stateScale(d.state);})
 				.attr('width', bandwidth)
 				.attr('y', function(d) { return numberScale(d.number);})
-				.attr('height', function(d) { return height - numberScale(d.number);})
+				.attr('height', function(d) { return (height - numberScale(d.number));})
 				.attr('fill', 'blue');
 		</script>
 	</body>
