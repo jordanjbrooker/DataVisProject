@@ -6,7 +6,7 @@
 <body>
     Hey.
     <div id="svg_container">
-        <svg id="chart" width="500" height="1000">
+        <svg id="chart" width="1000" height="50000">
         </svg>
     </div>
 
@@ -25,11 +25,11 @@ d3.csv("states.csv", function(error, data) {
             .enter()
             .append("rect")
             .attr("width",10)
-            .attr("height", function(d) { return (d.number/100);})
+            .attr("height", function(d) { return d.number;})
             .attr("transform", function(d,i) {
                 var xCoordinate 10*i;
                 return "translate(" + xCoordinate + ")";})
-            .attr("y", function(d) { return (1000-(d.number/100));})
+            .attr("y", function(d) { return 50000-d.number;})
             .exit()
             .remove()
     });
