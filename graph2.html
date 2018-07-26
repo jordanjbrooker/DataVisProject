@@ -4,9 +4,7 @@
 
 <html>
     <body>
-        <div id="svg-container">
-            <svg id="chart"></svg>
-        </div>
+        <svg id="chart"></svg>
         <script>
             d3.csv("states.csv", function(d) {
                 data.forEach(function(d) {
@@ -21,11 +19,15 @@
                 .range([0, d3.max(d.record)]);
             
             d3.select("#chart")
-                .data(data)
+                .selectAll("rect")
+                .data(d)
                 .enter()
                 .append("rect")
-                .style("width", function(d) { return x(d.number) + "px";})
-                .text(function(d) { return d.number; });
+                .attr("class","bar")
+                .attr("width", function(d) { return d.number; })
+                .text(function(d) { return d.number; })
+                .exit()
+                .remove();
         </script>
     </body>
 </html>
