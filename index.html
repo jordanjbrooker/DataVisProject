@@ -17,7 +17,7 @@ d3.select("#svg_container")
     .append("rect")
     .style("fill","gray")
     .exit()
-    .remove();
+    .remove()
     
 d3.csv("states.csv", function(error, data) {
     if (error) {
