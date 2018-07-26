@@ -7,16 +7,10 @@
         <svg id="chart"></svg>
         <script>
             d3.csv("states.csv", function(d) {
-                data.forEach(function(d) {
-                    d.record = +d.record;
-                    d.number = +d.number;
-                    return d;
+                d.record = +d.record;
+                d.number = +d.number;
+                return d;
                 });
-            });
-            
-            var x = d3.scale.linear()
-                .domain([0, d3.max(d.number)])
-                .range([0, d3.max(d.record)]);
             
             d3.select("#chart")
                 .selectAll("rect")
