@@ -4,10 +4,8 @@
 
 <html>
 <body>
-    <p>
-    <h1>HELLO</h1></p>
     <div id="svg_container">
-        <svg id="chart" width="720" height="420">
+        <svg id="chart" width="1000" height="1000">
         </svg>
     </div>
 
@@ -25,10 +23,10 @@ d3.csv("states.csv", function(error, data) {
             .data(data)
             .enter()
             .append("rect")
-            .attr("width",15)
+            .attr("width",10)
             .attr("height", function(d) { return d.number;})
-            .attr("x", function(d,i) { return 20*i;})
-            .attr("y", function(d,i) { return 25*i;})
+            .attr("x", function(d,i) { return i+15;})
+            .attr("y", function(d) { return 1000-(d/100);})
             .exit()
             .remove()
     });
