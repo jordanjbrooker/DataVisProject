@@ -29,7 +29,7 @@ d3.csv("states.csv", function(error, data) {
             .attr("transform", function(d,i) {
                 var xCoordinate 10*i;
                 return "translate(" + xCoordinate + ")";})
-            .attr("y", function(d) { return 50000-d.number;})
+            .attr("y", function(d) { return (50000-d.number);})
             .exit()
             .remove()
     });
