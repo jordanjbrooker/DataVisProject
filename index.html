@@ -4,46 +4,11 @@
 
 <html>
 <body>
-    <a href="https://jordanjbrooker.github.io/DataVisProject/graph2.html">Hey.</a>
+    <a href="https://jordanjbrooker.github.io/DataVisProject/graph2.html">Step2</a>
     <div id="svg_container">
         <svg id="chart" width="960" height="500">
         </svg>
     </div>
-
-<script>
-var svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom;
-
-var x = d3.scaleLog().rangeRound([0,width]).padding(0.1),
-    y = d3.scaleLinear().rangeRound([height, 0]);
-    
-d3.csv("states.csv", function(error, data) {
-    if (error) {
-        return console.warn(error);
-    }
-    data.forEach(function(d) {
-        d.number = +d.number;
-        d.record = +d.record;
-    }, function(error,data) {
-        if (error) throw error;
-        x.domain([0,d3.max(data,function(d) {return d.number;})]);
-        y.domain(data.map(function(d) {return d.record;}));
-    });
-    d3.select("#chart")
-            .selectAll("rect")
-            .data(data)
-            .enter()
-            .append("rect")
-            .attr("class","bar")
-            .attr("width", function(d) {return d.number;})
-            .attr("height",10)
-            .attr("y", function(d,i) { return 10*d.record;})
-            .exit()
-            .remove()
-    });
-
-</script>
+    <p> Need a starting graph here. </p>
 </body>
 </html>
