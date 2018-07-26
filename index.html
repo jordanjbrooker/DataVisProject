@@ -13,12 +13,12 @@
 
 <script>
     
-d3.csv("wine_reviews.csv", function(error, data) {
+d3.csv("states.csv", function(error, data) {
     if (error) {
         return console.warn(error);
     }
     data.forEach(function(d) {
-        d.record = +d.record;
+        d.number = +d.number;
     });
     d3.select("#chart")
             .selectAll("rect")
@@ -27,7 +27,8 @@ d3.csv("wine_reviews.csv", function(error, data) {
             .append("rect")
             .attr("width",15)
             .attr("height",20)
-            .attr("x", function(d) { return 10*d.record;})
+            .attr("x", function(d,i) { return 20*i;})
+            .attr("y", function(d) { return d.number;})
             .exit()
             .remove()
     });
