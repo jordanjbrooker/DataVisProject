@@ -27,7 +27,7 @@
     </div>
     
     <script>
-      d3.csv("states.csv", function(d){
+      var d = d3.csv("states.csv", function(d){
         d.record = +d.record;
         d.number = +d.number;
         return d;
