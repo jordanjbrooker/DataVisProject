@@ -24,7 +24,7 @@ d3.csv("states.csv", function(error, data) {
             .enter()
             .append("rect")
             .attr("width",10)
-            .attr("height", function(d) { return d.number;})
+            .attr("height", function(d) { return (d.number/100);})
             .attr("x", function(d,i) { return i+15;})
             .attr("y", function(d) { return 1000-(d/100);})
             .exit()
