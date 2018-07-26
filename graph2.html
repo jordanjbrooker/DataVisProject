@@ -8,8 +8,8 @@
     }
   </style>
   
-  <script src="https://d3js.org/d3.v4.min.js">
-  </script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   
   <body>
     <div id="title">
@@ -17,25 +17,76 @@
     </div>
     
     <!--Navigation-->
-    <div id="title">
-      <a href="https://jordanjbrooker.github.io/DataVisProject/">Back</a>
+    <div>
+      <a href="index.html">Back</a>
     </div>
     
-    <div id="svg-container">
-      <svg id="chart2">
-      </svg>
+    <div id="holder">
     </div>
     
     <script>
-      d3.csv("states.csv", function(d){
-        d.record = +d.record;
-        d.number = +d.number;
-        return d;
-      });
-      
-      console.log(d[0].record);
-      
+  var data = d3.csv("states.csv", function(d) {
+    d.number = +d.number;
+    d.record = +d.record;
+    return d; });
+	//var data = [{record: 0, number: 100, state: "California"},
+				//{record: 1, number: 50, state: "Michigan"}];
+	var states = data.map(function(d) { return d.state});
+	var margin = {top: 5, right: 5, bottom: 50, left: 50};
+	var fullWidth = 500;
+	var fullHeight = 500;
+	var width = fullWidth - margin.right - margin.left;
+	var height = fullHeight - margin.top - margin.bottom;
+	
+	var svg = d3.select("#holder")
+		.append('svg')
+		.attr('width', fullWidth)
+		.attr('height', fullHeight)
+		.append('g')
+		.attr('transform','translate(' + margin.left + "," + margin.top + ')');
+	var stateScale = d3.scaleBand()
+		.domain(states)
+		.range([0,width])
+		.paddingInner(0.1);
+	var numberScale = d3.scaleLinear()
+		.domain([0, d3.max(data, function(d) { return d.number;})])
+		.range([height, 0])
+		.nice()
+		
+	var xAxis = d3.axisBottom(stateScale);
+	var yAxis = d3.axisLeft(numberScale);
+	
+	svg.append('g')
+		.classed('x axis', true)
+		.attr('transform', 'translate(0,' + height + ')')
+		.call(xAxis);
+		
+	var yAxisEle = svg.append('g')
+		.classed('y axis', true)
+		.call(yAxis);
+		
+	var yText = yAxisEle.append('text')
+		.attr('transform', 'rotate(-90)translate(-' + height/2 + ',0)')
+		.style('text-anchor', 'middle')
+		.attr('dy', '-2.5em')
+		.attr('fill', 'black')
+		.text('Number of Wines');
+		
+	var bandwidth = stateScale.bandwidth();
+	var barHolder = svg.append('g')
+		.classed('bar-holder', true);
+
+	var bars = barHolder.selectAll('rect.bar')
+		.data(data)
+		.enter()
+		.append('rect')
+		.classed('bar', true)
+		.attr('x', function(d,i) { return stateScale(d.state)})
+		.attr('width', bandwidth)
+		.attr('y', function(d) { return numberScale(d.number);})
+		.attr('height', function(d) { return height - numberScale(d.number)})
+		.attr('fill', 'blue');
+		
     </script>
   </body>
 </html>
-
