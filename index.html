@@ -10,20 +10,21 @@
     </div>
 
 <script>
-
-d3.csv("winemag-data-130k-v2.csv")
-    .select("#chart")
-    .selectAll("rect")
-    .data(data)
-    .enter()
-    .append("rect")
-    .attr("width",15)
-    .attr("height",function(d){return 10*d;})
-    .attr("x",function(d,i){return 20*i;})
-    .attr("y", function(d){return ((height/2.0)-(5.0*d));})
-    .attr("tokenid",function(d,i){return d*i*64;})
-    .exit()
-    .remove()
+    
+d3.csv("/winemag-data-130k-v2.csv", function(error, data) {
+    if (error) {
+        return console.warn(error);
+    }
+    d3.select("#chart")
+            .selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("width",15)
+            .attr("height",20)
+            .exit()
+            .remove()
+    });
 
 </script>
 </body>
