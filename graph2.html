@@ -42,8 +42,14 @@ d3.csv("states.csv", function(d) {
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
+      .call(d3.axisBottom(x))
+    .append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor","middle")
+      .text("State");
+  
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y).ticks(10, "%"))
@@ -52,7 +58,7 @@ d3.csv("states.csv", function(d) {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Frequency");
+      .text("Number of Wines");
 
   g.selectAll(".bar")
     .data(data)
@@ -62,6 +68,7 @@ d3.csv("states.csv", function(d) {
       .attr("y", function(d) { return y(d.number); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.number); });
+ 
 });
 
 </script>
