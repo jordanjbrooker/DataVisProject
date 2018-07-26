@@ -25,12 +25,12 @@
     </div>
     
     <script>
-  var data = d3.csv("states.csv", function(d) {
-    d.number = +d.number;
-    d.record = +d.record;
-    return d; });
-	//var data = [{record: 0, number: 100, state: "California"},
-				//{record: 1, number: 50, state: "Michigan"}];
+	var data = d3.csv("states.csv", function(d) {
+		return {
+			number : +d.number,
+			record : +d.record,
+			state: d.state,
+		};);
 	var states = data.map(function(d) { return d.state});
 	var margin = {top: 5, right: 5, bottom: 50, left: 50};
 	var fullWidth = 500;
