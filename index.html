@@ -17,9 +17,12 @@ d3.csv("winemag-data-130k-v2.csv", function(error, data) {
     if (error) {
         return console.warn(error);
     }
+    data.forEach(function(d) {
+        d.Record = +d.Record;
+    });
     d3.select("#chart")
             .selectAll("rect")
-            .data(data.map(function(d) {return +d.Record;}))
+            .data(data)
             .enter()
             .append("rect")
             .attr("width",15)
