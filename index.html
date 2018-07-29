@@ -26,7 +26,7 @@ d3.select(".chart")
   .selectAll("div")
     .data(data)
   .enter().append("div")
-    .attr("width", function(d) { return x(d) + "px"; })
+    .attr("x", function(d) { return d; })
     .text(function(d) { return d; });
 
 </script>
