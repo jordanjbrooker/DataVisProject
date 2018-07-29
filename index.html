@@ -23,10 +23,10 @@
 			var y = d3.scaleLog()
 				.domain([2,40000])
 				.range([0,500]);
+			
 			var stateScale = d3.scaleBand()
-				.domain(d3.extent(data,function(d) { return d.state;}))
-				.range([0,500])
-				.paddingInner(0.1);
+				.domain([0,25])
+				.range([0,500]);
 			
 			d3.select(".chart")
 				.selectAll("rect")
@@ -35,7 +35,7 @@
 				.append("rect")
 				.attr("width", 19)
 				.attr("height", function(d) { return 10*(d.number+2);})
-				.attr("x", function(d,i) { return stateScale(d.state);})
+				.attr("x", function(d,i) { return stateScale(i);})
 				.attr("y", function(d) { return 500 - y(d.number+2);});
 		</script>
 	</body>
