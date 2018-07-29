@@ -6,14 +6,12 @@
 <html>
 	<body>
 		<p>
-			<h1 align="center">U.S. Wine</h1>
-			<h2>Where is wine made in the U.S.?</h2>
+		<h1 align="center">U.S. Wine</h1>
+		<h2>Where is wine made in the U.S.?</h2>
 		</p>
 		<svg class="chart" width="500" height="500"></svg>
 		<script>
 			var data = [4,8,15,16,23,42];
-			
-			var height = 500;
 			
 			var x = d3.scale.log()
 				.domain([2,40000])
@@ -27,7 +25,6 @@
 				.attr("width", 19)
 				.attr("height", function(d) { return 10*(d+2);})
 				.attr("x", function(d,i) { return 20*i;})
-				//.attr("y", function(d) { return 500 - 10*d; });
 				.attr("y", function(d) { return height - x(d+2);});
 		</script>
 	</body>
