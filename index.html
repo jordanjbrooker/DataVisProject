@@ -19,6 +19,8 @@
 					record : +d.record,
 					state: d.state,
 				};
+			}, function(d) {
+				console.log(+d.number);
 			});
 			var y = d3.scaleLog()
 				.domain([2,40000])
