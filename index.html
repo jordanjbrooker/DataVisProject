@@ -30,9 +30,9 @@
 				.enter()
 				.append("rect")
 				.attr("width", 19)
-				.attr("height", function(d) { return 10*(d+2);})
+				.attr("height", function(d) { return 10*(d.number+2);})
 				.attr("x", function(d,i) { return 20*i;})
-				.attr("y", function(d) { return 500 - x(d+2);});
+				.attr("y", function(d) { return 500 - x(d.number+2);});
 		</script>
 	</body>
 </html>
