@@ -27,6 +27,7 @@ d3.select(".chart")
     .data(data)
   .enter().append("div")
     .attr("x", function(d) { return d; })
+    .attr("width","2")
     .text(function(d) { return d; });
 
 </script>
