@@ -2,33 +2,31 @@
 <html>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <body>
-        <h1>CS498 Final Project - U.S. Wines</h1>
-        <div id='svg-container'>
-            <svg id='vis' width='200' height='200'>
-            </svg>
-        </div>
-        <script>
-            d3.select('.vis')
-                .selectAll('rect')
-                .data(data)
-                .join()
-                .attr("x", "10")
-                .attr('y', '10')
-                .attr('width','10')
-                .attr('height', function(d,i) { return i*10;})
-                .attr('fill', 'green')
-                .enter()
-                .append('rect')
-                .attr('x', '10')
-                .attr('y', '10')
-                .attr('width','10')
-                .attr('height', function(d,i) { return i*10;})
-                .attr('fill', 'green')
-                .exit()
-                .remove();
-            
-            var data = [10, 20, 30];
-        </script>
-    </body>
-</html>
+    <style>
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+</style>
+<div class="chart"></div>
+<script>
+
+var data = [4, 8, 15, 16, 23, 42];
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .attr("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; });
+
+</script>
