@@ -5,7 +5,7 @@
     <body>
         <h1>CS498 Final Project - U.S. Wines</h1>
         <div id='svg-container'>
-            <svg id='vis'>
+            <svg id='vis' width='200' height='200'>
             </svg>
         </div>
         <script>
@@ -14,8 +14,11 @@
                 .selectAll('rect')
                 .enter()
                 .append('rect')
+                .attr('x', '10')
+                .attr('y', '10')
                 .attr('width','10')
                 .attr('height', function(d,i) { return i*10;})
+                .attr('fill', 'green')
                 .exit()
                 .remove();
             
