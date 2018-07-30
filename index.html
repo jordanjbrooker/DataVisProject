@@ -21,7 +21,7 @@
 			<a href="https://jordanjbrooker.github.io/DataVisProject/varieties_1.html">2</a>
 		</div>
 		<h3 align="center">Where is wine made in the United States?</h3>
-	<div align="center"><svg class="chart" width="500" height="500"></svg></div>
+	<div align="center"><svg class="chart" width="500" height="1000"></svg></div>
 		<script>
 			var data = [{state:"California", number:"36247"},
 				    {state:"Washington", number:"8639"},
@@ -39,9 +39,12 @@
 				    {state:"Pennsylvania", number:"18"},
 				    {state:"Ohio", number:"12"}];
 			
+			var height = 1000;
+			var width = 500;
+			
 			var y = d3.scaleLog()
 				.domain([2,40000])
-				.range([0,500]);
+				.range([0,1000]);
 			
 			d3.select(".chart")
 				.selectAll("rect")
@@ -49,9 +52,9 @@
 				.enter()
 				.append("rect")
 				.attr("width", 20)
-				.attr("height", function(d,i) { return (10*(d.number + 2));})
+				.attr("height", function(d,i) { return (y(d.number + 2));})
 				.attr("x", function(d,i) { return 25*i;})
-				.attr("y", function(d,i) { return (500 - y(d.number + 2));})
+				.attr("y", function(d,i) { return (height - y(d.number + 2));})
 				.text(function(d) { return d.number;});
 		</script>
 	</body>
