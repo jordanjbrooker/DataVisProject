@@ -12,16 +12,16 @@
 		</p>
 		<svg class="chart" width="500" height="500"></svg>
 		<script>
-			var data = [4,8,15,16,23,42];
-			//var data = d3.csv("states.csv", function(d) {
-				//return {
-					//number : +d.number,
-					//record : +d.record,
-					//state: d.state,
-				//};
-			//}, function(d) {
-				//console.log(+d.number);
-			//});
+			//var data = [4,8,15,16,23,42];
+			var data = d3.csv("states.csv", function(d) {
+				return {
+					d.number : +d.number,
+					d.record : +d.record,
+					d.state: d.state,
+				};
+			}, function(d) {
+				console.log(+d.number);
+			});
 			var y = d3.scaleLog()
 				.domain([2,40000])
 				.range([0,500]);
@@ -32,9 +32,9 @@
 				.enter()
 				.append("rect")
 				.attr("width", 15)
-				.attr("height", function(d) { return 10*(d + 2);})
+				.attr("height", function(d) { return 10*(d.number + 2);})
 				.attr("x", function(d,i) { return 20*i;})
-				.attr("y", function(d) { return 500 - y(d + 2);});
+				.attr("y", function(d) { return 500 - y(d.number + 2);});
 		</script>
 	</body>
 </html>
