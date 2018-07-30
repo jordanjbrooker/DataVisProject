@@ -13,14 +13,13 @@
 		<svg class="chart" width="500" height="500"></svg>
 		<script>
 			//var data = [4,8,15,16,23,42];
-			var data = d3.csv("states.csv", function(d) {
-				return {
-					d.number = +d.number,
-					d.record = +d.record,
-					d.state = d.state,
-				};
-			}, function(d) {
-				console.log(+d.number);
+			var data = d3.csv("states.csv", function(data) {
+				data.forEach(function(d) {
+					d.number = +d.number;
+					d.record = +d.record;
+					d.state = d.state;
+				});
+			console.log(data)
 			});
 			var y = d3.scaleLog()
 				.domain([2,40000])
