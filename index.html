@@ -16,10 +16,10 @@
 			var data = d3.csv("states.csv", function(data) {
 				data.forEach(function(d) {
 					d.number = +d.number;
+					console.log(d.number)
 					d.record = +d.record;
 					d.state = d.state;
 				});
-			console.log(data[0])
 			});
 			
 			var y = d3.scaleLog()
