@@ -12,9 +12,21 @@
 		</p>
 		<svg class="chart" width="500" height="500"></svg>
 		<script>
-			var data = [
-				{state : "California", number: "35000"},
-				{state : "Michigan", number: "2000"}];
+			var data = [{state:"California", number:"36247"},
+				    {state:"Washington", number:"8639"},
+				    {state:"Oregon", number:"5373"},
+				    {state:"New York", number:"2688"},
+				    {state:"Virginia", number:"777"},
+				    {state:"Idaho", number:"192"},
+				    {state:"Michigan", number:"114"},
+				    {state:"Texas", number:"94"},
+				    {state:"Colorado", number:"68"},
+				    {state:"New Mexico", number:"45"},
+				    {state:"Arizona", number:"41"},
+				    {state:"Missouri", number:"33"},
+				    {state:"North Carolina", number:"23"},
+				    {state:"Pennsylvania", number:"18"},
+				    {state:"Ohio", number:"12"}];
 			
 			var y = d3.scaleLog()
 				.domain([2,40000])
