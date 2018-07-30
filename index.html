@@ -57,6 +57,9 @@
 			var x = d3.scaleLog()
 				.domain([10,37000])
 				.range([0,1000]);
+			var z = d3.scaleBand()
+				.domain([0,37000])
+				.range([0,width])
 			
 			d3.select(".chart")
 				.selectAll("rect")
@@ -67,7 +70,8 @@
 				.attr("height", 20)
 				.attr("x", 0)
 				//.attr("x", function(d,i) { return 25*i;})
-				.attr("y", function(d,i) { return 25*i;});
+				.attr("y", function(d,i) { return 25*i;})
+				.call(d3.axisBottom(z));
 		</script>
 	</body>
 </html>
