@@ -15,9 +15,9 @@
 			//var data = [4,8,15,16,23,42];
 			var data = d3.csv("states.csv", function(d) {
 				return {
-					d.number : +d.number,
-					d.record : +d.record,
-					d.state: d.state,
+					d.number = +d.number,
+					d.record = +d.record,
+					d.state = d.state,
 				};
 			}, function(d) {
 				console.log(+d.number);
