@@ -83,8 +83,8 @@
 				.enter()
 				.append("text")
 				.attr("class","label")
-				.attr("x", function(d) { return x(d.number);})
-				.attr("y", function(d,i) { return 25*i - 20;})
+				.attr("x", function(d) { return x(d.number) - 10;})
+				.attr("y", function(d,i) { return 25*i +20;})
 				.attr("dy", ".75em")
 				.text(function(d) { return d.state; });
 		</script>
