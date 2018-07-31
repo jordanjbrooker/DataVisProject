@@ -58,14 +58,11 @@ a:active {
 		  console.log(total);
 		  
 		  var pie_data=[];
-		  slices.forEach(function(d,i) {
-			  pie_date[i] = (d.count/total)*100;
-		  });
 		  
 		  var arc = d3.svg.arc().outerRadius(radius);
 		  // where is radius defined?
 		  var pie = d3.layout.pie()
-		  	.value(function (d,i) { return pie_data[i]; })
+		  	.value(function (d,i) { return (d.count/total)*100; })
 		  	.sort(null);
 		  var path = svg.selectAll("path")
 		  	.data(pie(slices))
