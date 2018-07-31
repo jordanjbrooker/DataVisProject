@@ -49,15 +49,18 @@ a:active {
 		  	.attr("height", height)
 		  	.append("g")
 		  	.attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+		 
 		  var total = 0;
-		  slices.forEach(
-			  total=total + slices.count;
+		  slices.forEach(function (d) {
+			  total=total + d.count;
 			  console.log(total);
-		  )
+		  });
+		  
 		  var pie_data=[];
-		  for(var a=0;a<slices.length;a++) {
-			  pie_data[a] = (slices[a].count/total)*100;
-		  }
+		  slices.forEach(function (d,i) {
+			  pie_date[i] = (d.count/total)*100;
+		  });
+		  
 		  var arc = d3.svg.arc().outerRadius(radius);
 		  // where is radius defined?
 		  var pie = d3.layout.pie()
