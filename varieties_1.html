@@ -65,7 +65,7 @@ a:active {
 		  var pie = d3.pie()
 		  	.value(function (d,i) { return (d.count/total)*100; })
 		  	.sort(null);
-		  var path = svg.selectAll("path")
+		  var path = div.selectAll("path")
 		  	.data(pie(slices))
 		  	.enter()
 		  	.append("path")
