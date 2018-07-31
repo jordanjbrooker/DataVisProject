@@ -50,10 +50,9 @@ a:active {
 		  	.append("g")
 		  	.attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
 		  var total = 0;
-		  for (var a=0;a<slices.length;a++) {
-			  total=total+parseInt(slices[a].count);
+		  slices.forEach(
+			  total=total + slices.count;
 			  console.log(total);
-		  }
 		  var pie_data=[];
 		  for(var a=0;a<slices.length;a++) {
 			  pie_data[a] = (slices[a].count/total)*100;
