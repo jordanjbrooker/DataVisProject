@@ -58,11 +58,6 @@
 				.domain([10,37000])
 				.range([0,1000]);
 			
-			var xAxisScale = d3.scaleLinear()
-				.domain([0,37000])
-				.range([0,width]);
-			var xAxis = d3.svg.axis().scale(xAxisScale);
-			
 			d3.select(".chart")
 				.selectAll("rect")
 				.data(data)
@@ -71,10 +66,7 @@
 				.attr("width", function(d) { return x(d.number);})
 				.attr("height", 20)
 				.attr("x", 0)
-				//.attr("x", function(d,i) { return 25*i;})
 				.attr("y", function(d,i) { return 25*i;})
-				.append("g")
-				.call(xAxis);
 		</script>
 	</body>
 </html>
