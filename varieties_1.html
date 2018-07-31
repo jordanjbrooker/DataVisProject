@@ -51,13 +51,13 @@ a:active {
 		  	.attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
 		 
 		  var total = 0;
-		  slices.forEach(function (d) {
+		  slices.forEach(function(d) {
 			  total=total + d.count;
-			  console.log(total);
 		  });
+		  console.log(total);
 		  
 		  var pie_data=[];
-		  slices.forEach(function (d,i) {
+		  slices.forEach(function(d,i) {
 			  pie_date[i] = (d.count/total)*100;
 		  });
 		  
