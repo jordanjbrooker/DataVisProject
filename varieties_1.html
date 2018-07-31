@@ -70,8 +70,8 @@ a:active {
 		  	.enter()
 		  	.append("path")
 		  	.attr("d", arc)
-		  	.attr("fill", function(d, i) {
-				return data[i].color;
+		  	.attr("fill", function(d,i) {
+				return d[i].color;
 			});
 	  </script>
   </body>
