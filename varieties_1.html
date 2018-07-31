@@ -50,12 +50,12 @@ a:active {
 		  	.append("g")
 		  	.attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
 		 
-		  var total = 0;
-		  slices.forEach(function(d) {
+		  var total = 0
+		  var start = slices.forEach(function(d) {
 			  total=total + d.count;
 			  return total;
 		  });
-		  console.log(total);
+		  console.log(start);
 		  
 		  var pie_data=[];
 		  
