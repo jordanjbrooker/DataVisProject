@@ -36,7 +36,9 @@
 			<div id="viz_button"><font size="+1">About the Visualization</font></div>
 		</div>
 		<h3 align="center">Where is wine made in the United States?</h3>
-	<div align="center"><svg class="chart" width="1005" height="500"></svg></div>
+	<div id="svgContainer" align="center">
+		<svg class="chart" width="1005" height="500"></svg>
+	</div>
 		<script>
 			var data = [{state:"California", number:"36247"},
 				    {state:"Washington", number:"8639"},
@@ -70,6 +72,12 @@
 				.attr("height", 20)
 				.attr("x", 0)
 				.attr("y", function(d,i) { return 25*i;})
+				.append("text")
+				.attr("class","label")
+				.attr("x", function(d) { return x(d.number) + 1;})
+				.attr("y", function(d) { return 25*i + 10;})
+				.attr("dy", ".75em")
+				.text(function(d) { return d.state; });
 		</script>
 	</body>
 </html>
