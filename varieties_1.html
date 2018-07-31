@@ -61,8 +61,7 @@ a:active {
 		  
 		  var pie_data=[];
 		  
-		  var arc = d3.svg.arc().outerRadius(radius);
-		  // where is radius defined?
+		  var arc = d3.arc().outerRadius(radius);
 		  var pie = d3.layout.pie()
 		  	.value(function (d,i) { return (d.count/total)*100; })
 		  	.sort(null);
