@@ -53,6 +53,7 @@ a:active {
 		  var total = 0;
 		  slices.forEach(function(d) {
 			  total=total + d.count;
+			  return total;
 		  });
 		  console.log(total);
 		  
