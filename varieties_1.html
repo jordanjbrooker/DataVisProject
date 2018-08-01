@@ -60,7 +60,8 @@
 		  var label = d3.arc()
 		  	.outerRadius(radius - 40)
 		  	.innerRadius(radius - 40);
-		  var arc = d3.selectAll(".arc")
+		  var arc = d3.select("svg")
+		  	.selectAll(".arc")
 		  	.data(pie(slices))
 		  	.enter()
 		  	.append("g")
