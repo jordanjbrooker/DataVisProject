@@ -85,8 +85,7 @@
 				.attr("y", function(d,i) { return 25*i + 5;})
 				.attr("dy", ".75em")
 				.text(function(d) { return d.state; });
-			var xAxisGroup = d3.select("#svgContainer")
-				.selectAll("svg")
+			var xAxisGroup = d3.select(".chart")
 				.append("g")
 				.attr("transform", "translate(0," + height + ")")
 				.call(d3.axisBottom(x))
