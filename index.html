@@ -85,12 +85,14 @@
 				.attr("y", function(d,i) { return 25*i + 5;})
 				.attr("dy", ".75em")
 				.text(function(d) { return d.state; });
-			var xAxis = d3.axis()
-				.scale(x);
 			var xAxisGroup = d3.select("#svgContainer")
 				.selectAll("svg")
 				.append("g")
-				.call(xAxis);
+				.call(d3.axisBottom(x))
+				.append("text")
+				.attr("transform", "translate(" + (width/2) + "," + (height + 20) + ")")
+				.style("text-anchor", "middle")
+				.text("Number of Wines")'
 		</script>
 	</body>
 </html>
