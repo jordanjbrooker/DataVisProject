@@ -56,6 +56,12 @@
 				    {state:"PA", number:"18"},
 				    {state:"OH", number:"12"}];
 			
+			var labels = [{x:996,
+				       y:25,
+				       text: "California: 36,247",
+				       orient:'right'
+				      }]
+			
 			var height = 500;
 			var width = 1000;
 			
@@ -83,10 +89,12 @@
 				.attr("y", function(d,i) { return 25*i + 5;})
 				.attr("dy", ".75em")
 				.text(function(d) { return d.state; });
-			var xAxisGroup = d3.select(".chart")
-				.append("g")
-				.attr("transform", "translate(0," + height + ")")
-				.call(d3.axisBottom(x));
+			 d3.select(".chart")
+				.append("text")
+				.append("x", 998)
+				.append("y", 20)
+				.text("California");
+			
 		</script>
 	</body>
 </html>
