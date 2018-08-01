@@ -41,7 +41,7 @@
 				{"variety": "Chardonnay", "percent": 0.166},
 				{"variety": "Syrah", "percent": 0.0792},
 				{"variety": "Red Blend", "percent": 0.0725},
-				{"variety": "Zinfandel", "percent": 0.0662",
+				{"variety": "Zinfandel", "percent": 0.0662},
 				{"variety": "Merlot", "percent": 0.0564},
 				{"variety": "Sauvignon Blanc", "percent": 0.0528},
 				{"variety": "Bordeaux-style Red Blend", "percent": 0.0445},
@@ -56,10 +56,10 @@
 		  	.append("g")
 		  	.attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
 		  
-		  var color = d3.scaleOrdinal(["#98abc5","#8a89a6"]);
+		  //var color = d3.scaleOrdinal(["#98abc5","#8a89a6"]);
 		  var pie = d3.pie()
 		  	.sort(null)
-		  	.value(function(d) { return d.count; });
+		  	.value(function(d) { return d.percent; });
 		  var path = d3.arc()
 		  	.outerRadius(radius - 10)
 		  	.innerRadius(0);
@@ -74,7 +74,7 @@
 		  	.attr("class","arc")
 		  	.append("path")
 		  	.attr("d",path)
-		  	.attr("fill", function(d) { return color(d.variety);})
+		  	//.attr("fill", function(d) { return color(d.variety);})
 		  	.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";});
 		 
 	  </script>
