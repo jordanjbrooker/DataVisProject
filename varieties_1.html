@@ -61,7 +61,7 @@
 		  	.outerRadius(radius - 40)
 		  	.innerRadius(radius - 40);
 		  var arc = d3.selectAll(".arc")
-		  	.data(pie(data))
+		  	.data(pie(slices))
 		  	.enter()
 		  	.append("g")
 		  	.attr("class","arc")
