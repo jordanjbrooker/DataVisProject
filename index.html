@@ -70,11 +70,6 @@
 				.range([0,1000]);
 			
 			d3.select(".chart")
-				.attr("width", width + 0.10)
-				.attr("height", height + 0.10)
-				.append("g")
-				.attr("transform", "translate(" + 0.05 + "," + (height + 0.05) + ")")
-				.call(d3.axisBottom(x))
 				.selectAll("rect")
 				.data(data)
 				.enter()
@@ -96,7 +91,7 @@
 				.text(function(d) { return d.state; });
 			 d3.select(".chart")
 				.append("text")
-				.attr("x", 950)
+				.attr("x", 900)
 				.attr("y", 40)
 				.text("California");
 			
