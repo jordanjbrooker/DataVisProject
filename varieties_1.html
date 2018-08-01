@@ -16,7 +16,12 @@
     		color: yellow;
     		background-color: transparent;
     		text-decoration: underline;
-	}
+	} .arc text {
+		font: 10px sans-serif;
+		text-anchor: middle;
+	} .arc path {
+		stroke: #fff;
+	}                                                                                                                                                               
 </style>
 <html>
 	<body>
@@ -33,37 +38,41 @@
 	  <div align="center" id="pie_chart" width="500" height="500"></div>
 	  
 	  <script>
-		  var slices = [{"count": 10, "color": "blue"},
-				{"count": 20, "color": "green"}];
+		  var slices = [{"count": 10, "variety": "malbec", color": "blue"},
+				{"count": 20, "variety": "chardonnay", "color": "green"}];
 		  var width = 500;
 		  var height = 500;
-		  var radius = 450/2;
+		  var radius = Math.min(width,height) / 2;
 		  var div = d3.select("#pie_chart")
 		  	.append("svg")
 		  	.attr("width", width)
 		  	.attr("height", height)
 		  	.append("g")
 		  	.attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
-		 
-		  var total = 0
-		  var start = slices.forEach(function(d) {
-			  total=total + d.count;
-			  return total;
-			  console.log(total)
-		  });
 		  
-		  var pie_data=[];
-		  
-		  var arc = d3.arc().outerRadius(radius);
+		  var color = d3.scaleOrdinal(["#98abc5","#8a89a6"]);
 		  var pie = d3.pie()
-		  	.value(function (d,i) { return (d.count/total)*100; })
-		  	.sort(null);
-		  var path = div.selectAll("path")
-		  	.data(pie(slices))
+		  	.sort(null)
+		  	.value(function(d) { return d.count; });
+		  var path = d3.arc()
+		  	.outerRadius(radius - 10)
+		  	.innerRadius(0);
+		  var label = d3.arc()
+		  	.outRadius(radius - 40)
+		  	.innerRadius(radius - 40);
+		  var arc = g.selectAll(".arc")
+		  	.data(pie(data))
 		  	.enter()
+		  	.append("g")
+		  	.attr("class","arc")
 		  	.append("path")
-		  	.attr("d", arc)
-		  	.attr("fill", "steelblue");
+		  	.attr("d",path)
+		  	.attr("fill", function(d) { return color(d.variety);})
+		  	.append("text")
+		  	.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";})
+		  	.attr("dy", "0.35em")
+		  	.text(function(d) { return d.variety;});
+		 
 	  </script>
   </body>
 </html>
