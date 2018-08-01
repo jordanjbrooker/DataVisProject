@@ -85,6 +85,12 @@
 				.attr("y", function(d,i) { return 25*i + 5;})
 				.attr("dy", ".75em")
 				.text(function(d) { return d.state; });
+			var xAxis = d3.axis()
+				.scale(x);
+			var xAxisGroup = d3.select("#svgContainer")
+				.selectAll("svg")
+				.append("g")
+				.call(xAxis);
 		</script>
 	</body>
 </html>
