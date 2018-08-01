@@ -69,10 +69,7 @@
 		  	.append("path")
 		  	.attr("d",path)
 		  	.attr("fill", function(d) { return color(d.variety);})
-		  	.append("text")
-		  	.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";})
-		  	.attr("dy", "0.35em")
-		  	.text(function(d) { return d.variety;});
+		  	.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";});
 		 
 	  </script>
   </body>
