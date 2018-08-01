@@ -88,11 +88,7 @@
 			var xAxisGroup = d3.select(".chart")
 				.append("g")
 				.attr("transform", "translate(0," + height + ")")
-				.call(d3.axisBottom(x))
-				.append("text")
-				.attr("transform", "translate(" + (width/2) + "," + (height + 20) + ")")
-				.style("text-anchor", "middle")
-				.text("Number of Wines");
+				.call(d3.axisBottom(x));
 		</script>
 	</body>
 </html>
