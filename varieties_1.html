@@ -72,8 +72,9 @@
 		  	.attr("class","arc")
 		  	.append("path")
 		  	.attr("d",path)
+		  	.attr("transform", "translate(" + (width/2) + "," + (height/2) + ")");
 		  	//.attr("fill", function(d) { return color(d.variety);})
-		  	.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";});
+		  	//.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";});
 		 
 	  </script>
   </body>
