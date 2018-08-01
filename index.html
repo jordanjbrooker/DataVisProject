@@ -91,9 +91,16 @@
 				.text(function(d) { return d.state; });
 			 d3.select(".chart")
 				.append("text")
-				.attr("x", 900)
-				.attr("y", 40)
+				.attr("x", 850)
+				.attr("y", 60)
 				.text("California");
+			var circle = svgContainer.append("line")
+				.attr("x1", 850)
+				.attr("y1", 55)
+				.attr("x2", 900)
+				.attr("y2", 40)
+				.attr("stroke-width", 2)
+				.attr("stroke", "black");
 			
 		</script>
 	</body>
