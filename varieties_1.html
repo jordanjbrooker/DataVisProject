@@ -60,7 +60,7 @@
 		  var label = d3.arc()
 		  	.outerRadius(radius - 40)
 		  	.innerRadius(radius - 40);
-		  var arc = g.selectAll(".arc")
+		  var arc = d3.selectAll(".arc")
 		  	.data(pie(data))
 		  	.enter()
 		  	.append("g")
