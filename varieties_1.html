@@ -28,7 +28,7 @@
 		<div align="center">
 			<a href="https://jordanjbrooker.github.io/DataVisProject/index.html" ><font size="-1">1 | </font></a>
 			<a href="https://jordanjbrooker.github.io/DataVisProject/varieties_1.html"><font size="+2"><u>2</u></font></a>
-			<a id="viz_button" href="https://jordanjbrooker.github.io/DataVisProject/about.html">About the Visualization</a>
+			<a id="viz_button" href="https://jordanjbrooker.github.io/DataVisProject/about.html"> | About the Visualization</a>
 		</div>
 	  <h3 align="center">What varieties are the most common?</h3>
 	  <div align="center" id="pie_chart" width="500" height="500"></div>
@@ -47,6 +47,7 @@
 		  var width = 500;
 		  var height = 500;
 		  var radius = Math.min(width,height) / 2;
+		  color = d3.scale.category20c(); 
 		  var div = d3.select("#pie_chart")
 		  	.append("svg")
 		  	.attr("width", width)
@@ -71,10 +72,9 @@
 		  	.append("g")
 		  	.attr("class","arc")
 		  	.append("path")
+		  	.attr("fill", function(d,i) { return color(i); })
 		  	.attr("d",path)
 		  	.attr("transform", "translate(" + (width/2) + "," + (height/2) + ")");
-		  	//.attr("fill", function(d) { return color(d.variety);})
-		  	//.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")";});
 		 
 	  </script>
   </body>
